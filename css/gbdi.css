@@ -1,0 +1,465 @@
+/* ============================================================
+   GBDI — framework-agnostic stylesheet for prototypes and static pages.
+     <link rel="stylesheet" href="css/gbdi.css">
+   Tokens come from ../tokens/gbdi.css; no raw colours below.
+   Class names match the Quasar kit (kits/quasar/) so a prototype
+   ports to the app without renaming: .gbdi-card, .gbdi-hero-card--green,
+   .text-lead, .text-display-lead, .btn-secondary, .grid-3-col …
+   Breakpoints [gbdi.io]: mobile ≤ 809px, tablet ≤ 1199px.
+   ============================================================ */
+
+@import "../tokens/gbdi.css";
+
+/* ── Base ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--gbdi-font-sans);
+  font-size: var(--gbdi-text-size-base);
+  line-height: var(--gbdi-text-line-height-base);
+  color: var(--gbdi-color-text);
+  background-color: var(--gbdi-color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5em;
+  color: var(--gbdi-color-text);
+}
+
+p {
+  margin: 0 0 1em;
+  line-height: var(--gbdi-text-line-height-paragraph);
+}
+
+/* SK Modernist for large headings (≥ 32px), Satoshi for the rest [p.13] */
+h1, h2, h3, .text-display {
+  font-family: var(--gbdi-font-display);
+  font-weight: var(--gbdi-text-weight-regular);
+  line-height: var(--gbdi-text-line-height-display);
+}
+
+h1 { font-size: var(--gbdi-text-size-display-xl); }
+h2 { font-size: var(--gbdi-text-size-display-lg); }
+h3 { font-size: var(--gbdi-text-size-display-md); }
+
+h4, h5, h6 {
+  font-family: var(--gbdi-font-sans);
+  line-height: var(--gbdi-text-line-height-base);
+}
+
+h4 { font-size: var(--gbdi-text-size-heading-lg); font-weight: var(--gbdi-text-weight-regular); }
+h5 { font-size: var(--gbdi-text-size-heading-md); font-weight: var(--gbdi-text-weight-bold); }
+h6 { font-size: var(--gbdi-text-size-base); font-weight: var(--gbdi-text-weight-bold); }
+
+@media (max-width: 1199px) {
+  h1 { font-size: var(--gbdi-text-size-display-xl-tablet); }
+  h2 { font-size: var(--gbdi-text-size-display-lg-tablet); }
+}
+
+@media (max-width: 809px) {
+  h1, h2 { font-size: var(--gbdi-text-size-display-mobile); }
+}
+
+/* Lead paragraph + the faded half of a display line [p.13, p.35]:
+     <h1>Open Data <span class="text-display-lead">Better Buildings</span></h1> */
+.text-lead {
+  max-width: 42rem; /* a readable measure, as on gbdi.io */
+  font-size: var(--gbdi-text-size-lg);
+  line-height: var(--gbdi-text-line-height-paragraph);
+  color: var(--gbdi-color-text-lead);
+}
+
+.text-display-lead {
+  color: var(--gbdi-color-text-lead);
+}
+
+/* One focus style for everything interactive (Green Dark, 3:1+ everywhere) */
+:where(a, button, [tabindex], input, select, textarea):focus-visible {
+  outline: var(--gbdi-focus-ring);
+  outline-offset: var(--gbdi-focus-offset);
+}
+
+/* ── Utilities ────────────────────────────────────────────── */
+.link {
+  color: var(--gbdi-color-text-link);
+  text-decoration: underline;
+  text-decoration-color: var(--gbdi-color-text-link);
+  text-underline-offset: 0.125rem;
+  transition: color var(--gbdi-transition-default), text-decoration-color var(--gbdi-transition-default);
+}
+
+.link:hover {
+  color: var(--gbdi-color-text);
+  text-decoration-color: var(--gbdi-color-primary);
+}
+
+.u-text-muted { color: var(--gbdi-color-text-muted); }
+.u-text-bold { font-weight: var(--gbdi-text-weight-bold); }
+.u-font-display { font-family: var(--gbdi-font-display); }
+.u-mb-none { margin-bottom: 0; }
+.u-mb-sm { margin-bottom: var(--gbdi-spacing-sm); }
+.u-mb-md { margin-bottom: var(--gbdi-spacing-md); }
+.u-mb-lg { margin-bottom: var(--gbdi-spacing-lg); }
+
+/* ── Layout ───────────────────────────────────────────────── */
+.page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: var(--gbdi-spacing-xl);
+  width: 100%;
+  max-width: var(--gbdi-layout-page-width);
+  margin: 0 auto;
+  padding: var(--gbdi-spacing-page) var(--gbdi-spacing-lg);
+}
+
+/* Three cards per row is the recurring layout [p.26, p.36] */
+.grid-3-col,
+.grid-2-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gbdi-spacing-lg);
+}
+
+@media (min-width: 810px) {
+  .grid-3-col,
+  .grid-2-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .grid-3-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--gbdi-layout-page-width);
+  margin: 0 auto;
+  padding: var(--gbdi-spacing-xl);
+  background-color: var(--gbdi-color-surface);
+  border: var(--gbdi-border-width) solid var(--gbdi-color-border);
+  border-radius: var(--gbdi-radius-card);
+}
+
+/* ── Header [p.36] ────────────────────────────────────────── */
+.gbdi-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gbdi-spacing-xxl);
+  padding: var(--gbdi-spacing-md) var(--gbdi-spacing-xxl);
+  background-color: var(--gbdi-color-surface-muted);
+  border-bottom: var(--gbdi-border-width) solid var(--gbdi-color-border);
+}
+
+.gbdi-header__brand img {
+  height: 2rem;
+  width: auto;
+}
+
+.gbdi-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gbdi-spacing-xxl);
+  margin-left: auto;
+  font-size: var(--gbdi-text-size-sm);
+}
+
+.gbdi-header__nav a {
+  color: var(--gbdi-color-text);
+  text-decoration: none;
+  text-underline-offset: 0.25rem;
+}
+
+.gbdi-header__nav a:hover,
+.gbdi-header__nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+@media (max-width: 809px) {
+  .gbdi-header {
+    gap: var(--gbdi-spacing-md) var(--gbdi-spacing-lg);
+    padding: var(--gbdi-spacing-md) var(--gbdi-spacing-lg);
+  }
+
+  .gbdi-header .gbdi-actions { margin-left: auto; }
+
+  .gbdi-header__nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    gap: var(--gbdi-spacing-sm) var(--gbdi-spacing-lg);
+  }
+}
+
+/* A row of buttons, in the header or under a heading */
+.gbdi-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gbdi-spacing-sm);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────
+   Primary  = Primary Green, "buttons on the website" [p.15].
+              White on Primary Green is 3.41:1: keep labels short and medium weight.
+   Secondary = the guideline "Download" button [p.6]: grey fill, 1px accent border. */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gbdi-spacing-sm);
+  min-height: var(--gbdi-size-control);
+  padding: var(--gbdi-spacing-md) var(--gbdi-spacing-lg);
+  border: var(--gbdi-border-width) solid transparent;
+  border-radius: var(--gbdi-radius);
+  font-family: var(--gbdi-font-sans);
+  font-size: var(--gbdi-text-size-base);
+  font-weight: var(--gbdi-text-weight-medium);
+  line-height: var(--gbdi-text-line-height-base);
+  text-decoration: none;
+  text-transform: none;
+  cursor: pointer;
+  transition: background-color var(--gbdi-transition-default);
+}
+
+.btn-primary {
+  background-color: var(--gbdi-color-primary);
+  color: var(--gbdi-color-text-on-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--gbdi-color-primary-strong);
+}
+
+.btn-secondary {
+  background-color: var(--gbdi-color-surface-muted);
+  border-color: var(--gbdi-color-border-control);
+  color: var(--gbdi-color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--gbdi-color-surface-highlight);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-primary[aria-disabled="true"],
+.btn-secondary[aria-disabled="true"] {
+  background-color: var(--gbdi-color-surface-muted);
+  border-color: var(--gbdi-color-border);
+  color: var(--gbdi-color-text-disabled);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* ── Form field [sign-in screen, p.40] ────────────────────── */
+.gbdi-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gbdi-spacing-xs);
+}
+
+.gbdi-field__label {
+  font-size: var(--gbdi-text-size-sm);
+  color: var(--gbdi-color-text-muted);
+}
+
+.gbdi-field__input {
+  min-height: var(--gbdi-size-control);
+  padding: var(--gbdi-spacing-sm) var(--gbdi-spacing-md);
+  border: var(--gbdi-border-width) solid var(--gbdi-color-border-control);
+  border-radius: var(--gbdi-radius);
+  background-color: var(--gbdi-color-surface);
+  font: inherit;
+  color: var(--gbdi-color-text);
+}
+
+.gbdi-field__input::placeholder {
+  color: var(--gbdi-color-text-muted);
+}
+
+.gbdi-field__input:focus {
+  outline: none;
+  border-color: var(--gbdi-color-primary-strong);
+  box-shadow: 0 0 0 var(--gbdi-border-width) var(--gbdi-color-primary-strong);
+}
+
+.gbdi-field__input:disabled {
+  background-color: var(--gbdi-color-surface-muted);
+  color: var(--gbdi-color-text-disabled);
+}
+
+/* Error red is NOT GBDI (see tokens/gbdi.css) */
+.gbdi-field--error .gbdi-field__input { border-color: var(--gbdi-color-status-error); }
+.gbdi-field__message { font-size: var(--gbdi-text-size-sm); color: var(--gbdi-color-status-error); }
+
+/* ── Badge / chip [p.13, p.19] ────────────────────────────── */
+.gbdi-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--gbdi-size-chip);
+  padding: var(--gbdi-spacing-xxs) var(--gbdi-spacing-sm);
+  border-radius: var(--gbdi-radius-xs);
+  background-color: var(--gbdi-color-surface-highlight);
+  color: var(--gbdi-color-text);
+  font-size: var(--gbdi-text-size-xs);
+}
+
+/* ── Standard card [p.26]: white or grey, heading + text (+ illustration).
+      Several may sit side by side. ── */
+.gbdi-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gbdi-spacing-lg);
+  padding: var(--gbdi-card-padding);
+  background-color: var(--gbdi-color-surface);
+  border: var(--gbdi-border-width) solid var(--gbdi-color-border);
+  border-radius: var(--gbdi-radius-card);
+}
+
+.gbdi-card > * { margin: 0; }
+.gbdi-card--grey { background-color: var(--gbdi-color-surface-muted); }
+.gbdi-card--panel { border-radius: var(--gbdi-radius-panel); }
+
+.gbdi-card__title {
+  font-family: var(--gbdi-font-sans);
+  font-size: var(--gbdi-text-size-heading-lg);
+  font-weight: var(--gbdi-text-weight-regular);
+  line-height: var(--gbdi-text-line-height-base);
+  color: var(--gbdi-color-text);
+}
+
+.gbdi-card__body {
+  font-size: var(--gbdi-text-size-lg);
+  line-height: var(--gbdi-text-line-height-paragraph);
+  color: var(--gbdi-color-text-muted);
+}
+
+/* SVG illustrations use fill="none": no white fill on a grey card [p.19] */
+.gbdi-card__illustration {
+  max-height: 10rem;
+  align-self: flex-start;
+}
+
+/* ── Line illustration [p.24]: 1px Grey Dark stroke, Green-Grey Accent
+      on a few faces, no fill elsewhere. Mark accent shapes class="accent". ── */
+.gbdi-illustration * {
+  fill: none;
+  stroke: var(--gbdi-illustration-stroke);
+  stroke-width: var(--gbdi-illustration-stroke-width);
+  vector-effect: non-scaling-stroke;
+}
+
+.gbdi-illustration .accent {
+  fill: var(--gbdi-illustration-accent);
+}
+
+/* ── Hero card [p.17, p.26]: pastel fill, big number, one short line.
+      ONE set of hero cards per page or application. ── */
+.gbdi-hero-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gbdi-spacing-sm);
+  padding: var(--gbdi-hero-card-padding);
+  border-radius: var(--gbdi-radius);
+  background-color: var(--hero-bg);
+}
+
+.gbdi-hero-card > * { margin: 0; }
+
+.gbdi-hero-card__number {
+  font-family: var(--gbdi-font-display);
+  font-size: var(--gbdi-text-size-display-lg);
+  line-height: var(--gbdi-text-line-height-tight);
+  color: var(--hero-number);
+}
+
+.gbdi-hero-card__text {
+  font-size: var(--gbdi-text-size-lg);
+  line-height: var(--gbdi-text-line-height-hero);
+  color: var(--hero-text);
+}
+
+.gbdi-hero-card--green  { --hero-bg: var(--gbdi-hero-green-bg);  --hero-number: var(--gbdi-hero-green-number);  --hero-text: var(--gbdi-hero-green-text); }
+.gbdi-hero-card--blue   { --hero-bg: var(--gbdi-hero-blue-bg);   --hero-number: var(--gbdi-hero-blue-number);   --hero-text: var(--gbdi-hero-blue-text); }
+.gbdi-hero-card--purple { --hero-bg: var(--gbdi-hero-purple-bg); --hero-number: var(--gbdi-hero-purple-number); --hero-text: var(--gbdi-hero-purple-text); }
+.gbdi-hero-card--orange { --hero-bg: var(--gbdi-hero-orange-bg); --hero-number: var(--gbdi-hero-orange-number); --hero-text: var(--gbdi-hero-orange-text); }
+
+/* ── Table [Google Docs template, p.30]: grey head row, hairlines ── */
+.gbdi-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: var(--gbdi-border-width) solid var(--gbdi-color-border);
+  font-size: var(--gbdi-text-size-sm);
+}
+
+.gbdi-table th {
+  background-color: var(--gbdi-color-surface-muted);
+  font-weight: var(--gbdi-text-weight-medium);
+  text-align: left;
+}
+
+.gbdi-table th,
+.gbdi-table td {
+  padding: var(--gbdi-spacing-sm) var(--gbdi-spacing-md);
+  border-bottom: var(--gbdi-border-width) solid var(--gbdi-color-border);
+}
+
+/* Wrap long tables so they scroll sideways on a phone, not the page */
+.gbdi-table-wrap {
+  overflow-x: auto;
+}
+
+.gbdi-table td.num,
+.gbdi-table th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Stacked bar [p.16]: dark → bright segments on a pastel track.
+     <div class="gbdi-bar gbdi-bar--green">
+       <div class="gbdi-bar__label"><span>Materials</span><span>412 kgCO₂e/m²</span></div>
+       <div class="gbdi-bar__track"><span style="--value: 20%"></span><span style="--value: 35%"></span></div>
+     </div>
+   Parts of one whole: give each segment its ramp step,
+     <span style="--value: 44%; --color: var(--gbdi-dataviz-green-1)"></span> … up to -4. ── */
+.gbdi-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gbdi-spacing-sm);
+}
+
+.gbdi-bar__label {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gbdi-spacing-lg);
+  font-size: var(--gbdi-text-size-xs);
+  color: var(--gbdi-color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.gbdi-bar__track {
+  display: flex;
+  height: 0.5rem;
+  background-color: var(--bar-track);
+}
+
+.gbdi-bar__track > span { width: var(--value); background-color: var(--color, var(--bar-2)); }
+.gbdi-bar__track > span:first-child { background-color: var(--color, var(--bar-1)); }
+
+.gbdi-bar--green  { --bar-1: var(--gbdi-dataviz-green-1);  --bar-2: var(--gbdi-dataviz-green-2);  --bar-track: var(--gbdi-dataviz-green-4); }
+.gbdi-bar--blue   { --bar-1: var(--gbdi-dataviz-blue-1);   --bar-2: var(--gbdi-dataviz-blue-2);   --bar-track: var(--gbdi-dataviz-blue-4); }
+.gbdi-bar--purple { --bar-1: var(--gbdi-dataviz-purple-1); --bar-2: var(--gbdi-dataviz-purple-2); --bar-track: var(--gbdi-dataviz-purple-4); }
+.gbdi-bar--orange { --bar-1: var(--gbdi-dataviz-orange-1); --bar-2: var(--gbdi-dataviz-orange-2); --bar-track: var(--gbdi-dataviz-orange-4); }

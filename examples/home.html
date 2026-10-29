@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GBDI · Open data for better buildings</title>
+  <link rel="icon" href="../assets/gbdi-icon.svg">
+  <link rel="stylesheet" href="../css/gbdi.css">
+</head>
+<body>
+  <header class="gbdi-header">
+    <a class="gbdi-header__brand" href="#"><img src="../assets/gbdi-logo-secondary.svg" alt="Global Building Data Initiative"></a>
+    <nav class="gbdi-header__nav" aria-label="Main">
+      <a href="#" aria-current="page">Home</a>
+      <a href="#">Platform</a>
+      <a href="#">Community</a>
+      <a href="#">About</a>
+      <a href="#">Resources</a>
+    </nav>
+    <div class="gbdi-actions">
+      <a class="btn-secondary" href="#">Log in</a>
+      <a class="btn-primary" href="#">Sign up</a>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- One statement, two tones: the second half fades to Grey Text [p.35] -->
+    <section>
+      <h1>Open Data<br><span class="text-display-lead">Better Buildings</span></h1>
+      <p class="text-lead">Design resilient buildings with better climate performance. Manage your
+        portfolio's footprint. Develop effective climate policy. Use our data and tools to assess and
+        reduce resource use and embodied carbon emissions.</p>
+      <div class="gbdi-actions">
+        <a class="btn-primary" href="#">Explore the data</a>
+        <a class="btn-secondary" href="#">Download the methodology</a>
+      </div>
+    </section>
+
+    <!-- The one set of hero cards on this page. Every number carries its source. -->
+    <section class="grid-3-col" aria-label="Key figures">
+      <div class="gbdi-hero-card gbdi-hero-card--green">
+        <p class="gbdi-hero-card__number">42%</p>
+        <p class="gbdi-hero-card__text">of global carbon emissions can be reduced by building better.<sup>1</sup></p>
+      </div>
+      <div class="gbdi-hero-card gbdi-hero-card--blue">
+        <p class="gbdi-hero-card__number">50–90%</p>
+        <p class="gbdi-hero-card__text">of a new building's whole-life carbon is embodied carbon.<sup>2</sup></p>
+      </div>
+      <div class="gbdi-hero-card gbdi-hero-card--purple">
+        <p class="gbdi-hero-card__number">50–70%</p>
+        <p class="gbdi-hero-card__text">less embodied carbon from materials is possible today.<sup>3</sup></p>
+      </div>
+    </section>
+
+    <!-- Standard cards: as many as needed, white or grey, heading + text + line illustration -->
+    <section class="grid-3-col">
+      <article class="gbdi-card">
+        <svg class="gbdi-card__illustration gbdi-illustration" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <circle cx="60" cy="60" r="48"/>
+          <ellipse cx="60" cy="60" rx="32" ry="48"/>
+          <ellipse cx="60" cy="60" rx="14" ry="48"/>
+          <path d="M60 12v96"/>
+          <circle class="accent" cx="38" cy="36" r="4"/>
+          <circle class="accent" cx="74" cy="52" r="4"/>
+          <circle class="accent" cx="50" cy="78" r="4"/>
+          <circle class="accent" cx="88" cy="72" r="4"/>
+        </svg>
+        <h2 class="gbdi-card__title">Better data</h2>
+        <p class="gbdi-card__body">Open, comparable building and whole-life carbon data, collected with one
+          global methodology.</p>
+      </article>
+      <article class="gbdi-card">
+        <svg class="gbdi-card__illustration gbdi-illustration" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <path d="M14 58l52-28 40 22-52 28z"/>
+          <path d="M14 58v24l40 22V80"/>
+          <path d="M54 104l52-28V52"/>
+          <path class="accent" d="M40 54l10-5 8 4-10 5z"/>
+          <path class="accent" d="M60 49l10-5 8 4-10 5z"/>
+        </svg>
+        <h2 class="gbdi-card__title">Better materials</h2>
+        <p class="gbdi-card__body">Material hotspots that show where a low-carbon alternative changes the
+          result most.</p>
+      </article>
+      <article class="gbdi-card">
+        <svg class="gbdi-card__illustration gbdi-illustration" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <path class="accent" d="M34 30l26-14 26 14-26 14z"/>
+          <path d="M34 30v58l26 14V44"/>
+          <path d="M60 102l26-14V30"/>
+          <path d="M64 52l18-10M64 64l18-10M64 76l18-10M64 88l18-10"/>
+        </svg>
+        <h2 class="gbdi-card__title">Better design</h2>
+        <p class="gbdi-card__body">Benchmarks that let a design team compare an option against real
+          buildings, early enough to matter.</p>
+      </article>
+    </section>
+
+    <!-- Data at the detail scale: grey panel, colour encodes the series, units always shown -->
+    <section class="gbdi-card gbdi-card--grey gbdi-card--panel" aria-labelledby="gwp-title">
+      <h2 id="gwp-title" class="gbdi-card__title">GWP by life cycle stage</h2>
+      <p class="gbdi-card__body">Median of the sample, kgCO₂e per m² of floor area. <span class="gbdi-badge">Sample data</span></p>
+      <div class="gbdi-bar gbdi-bar--green">
+        <div class="gbdi-bar__label"><span>Product stage (A1–A3)</span><span>412 kgCO₂e/m²</span></div>
+        <div class="gbdi-bar__track"><span style="--value: 22%"></span><span style="--value: 36%"></span></div>
+      </div>
+      <div class="gbdi-bar gbdi-bar--blue">
+        <div class="gbdi-bar__label"><span>Construction (A4–A5)</span><span>64 kgCO₂e/m²</span></div>
+        <div class="gbdi-bar__track"><span style="--value: 4%"></span><span style="--value: 5%"></span></div>
+      </div>
+      <div class="gbdi-bar gbdi-bar--purple">
+        <div class="gbdi-bar__label"><span>Use stage (B1–B5)</span><span>138 kgCO₂e/m²</span></div>
+        <div class="gbdi-bar__track"><span style="--value: 8%"></span><span style="--value: 12%"></span></div>
+      </div>
+      <div class="gbdi-bar gbdi-bar--orange">
+        <div class="gbdi-bar__label"><span>End of life (C1–C4)</span><span>41 kgCO₂e/m²</span></div>
+        <div class="gbdi-bar__track"><span style="--value: 3%"></span><span style="--value: 3%"></span></div>
+      </div>
+      <table class="gbdi-table">
+        <thead>
+          <tr><th>Country</th><th class="num">Buildings</th><th class="num">Median (kgCO₂e/m²)</th><th class="num">Range (P10–P90)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Country A</td><td class="num">128</td><td class="num">445</td><td class="num">310–620</td></tr>
+          <tr><td>Country B</td><td class="num">96</td><td class="num">402</td><td class="num">280–590</td></tr>
+          <tr><td>Country C</td><td class="num">211</td><td class="num">371</td><td class="num">250–510</td></tr>
+        </tbody>
+      </table>
+      <div><a class="btn-secondary" href="#">Download CSV</a></div>
+    </section>
+
+    <footer class="u-text-muted">
+      <ol>
+        <li>Source of the first figure: cite the dataset and year.</li>
+        <li>Source of the second figure: cite the dataset and year.</li>
+        <li>Source of the third figure: cite the dataset and year.</li>
+      </ol>
+      <p class="u-mb-none">GBDI · Global Building Data Initiative</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+---
+description: GBDI (Global Building Data Initiative) design system. Apply when building or styling any GBDI UI, chart or prototype.
+globs: ["**/*.vue", "**/*.ts", "**/*.css", "**/*.scss", "**/*.html"]
+alwaysApply: false
+---
+
+# GBDI design system (Cursor rule)
+
+The canonical rules are in `AGENTS.md` at the root of the gbdi-design-skill repo:
+read it, then `README.md` from "Design principles" down, then `examples/home.html`.
+
+- Tokens only: `var(--gbdi-*)` or `tokens.$…`. No raw hex outside the token files.
+- SK Modernist for headings ≥ 32px, Satoshi for the rest. Never commit font files.
+- Primary Green in small splashes; pastels only on hero cards, one set per page.
+- Flat: 1px Green-Grey borders, no card shadows, no gradients.
+- Every number has a unit and a source.

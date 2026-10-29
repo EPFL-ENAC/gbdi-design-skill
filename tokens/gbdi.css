@@ -1,0 +1,190 @@
+/* ============================================================
+   GBDI tokens: plain CSS custom properties, no build step.
+   Source: GBDI Brand Guidelines v01 (2024, Lazy Sundays), via the
+   Sass token layers in kits/quasar/02-tokens/.
+
+   Names are the ones kits/quasar/02-tokens/css-properties.scss
+   already emits (--gbdi-color-primary, --gbdi-hero-green-bg, …),
+   extended with the type, spacing and component scales. Rule:
+   Sass `$x` in _decisions.scss  →  CSS `--gbdi-x` here.
+
+   This file and kits/quasar/02-tokens/_options.scss are the ONLY
+   places raw values live. Change a value there first, then here.
+   ponytail: hand-mirrored, not generated; compile css-properties.scss
+   with sass if the two ever drift.
+   ============================================================ */
+
+@import "fonts.css";
+
+:root {
+  /* ── Palette [brand p.15, p.18] — named as in the guidelines ── */
+  --gbdi-green-pastel: #eafaf0;
+  --gbdi-green-light: #a6dbc9;
+  --gbdi-green-bright: #189d7e; /* = Primary Green, Pantone 339 */
+  --gbdi-green-dark: #206d59;
+
+  --gbdi-blue-pastel: #e9f7fe;
+  --gbdi-blue-light: #9dd2f3;
+  --gbdi-blue-bright: #3592e3;
+  --gbdi-blue-dark: #31658d;
+
+  --gbdi-purple-pastel: #efecfe;
+  --gbdi-purple-light: #baaef6;
+  --gbdi-purple-bright: #8671ef;
+  --gbdi-purple-dark: #5c5cae;
+
+  --gbdi-orange-pastel: #fee6c8;
+  --gbdi-orange-light: #fbca94;
+  --gbdi-orange-bright: #f59b3a;
+  --gbdi-orange-dark: #cc7212;
+
+  --gbdi-black: #3e3e3e;             /* soft black: headings + text */
+  --gbdi-grey-dark: #646464;         /* secondary text, illustration stroke */
+  --gbdi-grey-text: #bcc4c2;         /* lead paragraphs, faded display words */
+  --gbdi-green-grey-accent: #d5e6e2; /* highlight, control border, illustration accent */
+  --gbdi-green-grey-border: #eef2f2; /* card border */
+  --gbdi-green-grey-card: #f6f8f8;   /* standard grey card, page bands */
+  --gbdi-white: #ffffff;
+
+  /* WARNING: NOT GBDI. The guidelines define no red. IT4R suggestion
+     so forms can show errors (5.6:1 on white). Validate with GBDI. */
+  --gbdi-suggested-red-not-gbdi: #c62828;
+
+  /* ── Brand ── */
+  --gbdi-color-primary: var(--gbdi-green-bright);        /* small splashes only */
+  --gbdi-color-primary-strong: var(--gbdi-green-dark);   /* green text < 24px, hover */
+  --gbdi-color-accent: var(--gbdi-orange-bright);
+
+  /* ── Surfaces ── */
+  --gbdi-color-surface: var(--gbdi-white);
+  --gbdi-color-surface-muted: var(--gbdi-green-grey-card);
+  --gbdi-color-surface-highlight: var(--gbdi-green-grey-accent);
+  --gbdi-color-border: var(--gbdi-green-grey-border);
+  --gbdi-color-border-control: var(--gbdi-green-grey-accent);
+
+  /* ── Text ── */
+  --gbdi-color-text: var(--gbdi-black);           /* 10.7:1 */
+  --gbdi-color-text-muted: var(--gbdi-grey-dark); /* 5.92:1 */
+  --gbdi-color-text-lead: var(--gbdi-grey-text);  /* 1.78:1: never the only carrier of meaning */
+  --gbdi-color-text-on-primary: var(--gbdi-white);
+  --gbdi-color-text-link: var(--gbdi-green-dark);
+  --gbdi-color-text-disabled: var(--gbdi-grey-text);
+
+  /* ── Status ── */
+  --gbdi-color-status-success: var(--gbdi-green-dark);
+  --gbdi-color-status-info: var(--gbdi-blue-dark);
+  --gbdi-color-status-warning: var(--gbdi-orange-dark);
+  --gbdi-color-status-error: var(--gbdi-suggested-red-not-gbdi);
+
+  /* ── Focus ── */
+  --gbdi-focus-ring: 2px solid var(--gbdi-green-dark);
+  --gbdi-focus-offset: 2px;
+
+  /* ── Hero tones [brand p.17, p.26]: pastel fill, Bright number, Dark text.
+        Orange is not drawn in the PDF; its number uses Orange Dark (Bright is 1.8:1). ── */
+  --gbdi-hero-green-bg: var(--gbdi-green-pastel);
+  --gbdi-hero-green-number: var(--gbdi-green-bright);
+  --gbdi-hero-green-text: var(--gbdi-green-dark);
+  --gbdi-hero-blue-bg: var(--gbdi-blue-pastel);
+  --gbdi-hero-blue-number: var(--gbdi-blue-bright);
+  --gbdi-hero-blue-text: var(--gbdi-blue-dark);
+  --gbdi-hero-purple-bg: var(--gbdi-purple-pastel);
+  --gbdi-hero-purple-number: var(--gbdi-purple-bright);
+  --gbdi-hero-purple-text: var(--gbdi-purple-dark);
+  --gbdi-hero-orange-bg: var(--gbdi-orange-pastel);
+  --gbdi-hero-orange-number: var(--gbdi-orange-dark);
+  --gbdi-hero-orange-text: var(--gbdi-orange-dark);
+
+  /* ── Data viz [brand p.15–16]: green first, then blue, purple, orange.
+        Ramps run dark (1) → bright (2) → light (3) → pastel (4). ── */
+  --gbdi-dataviz-1: var(--gbdi-green-bright);
+  --gbdi-dataviz-2: var(--gbdi-blue-bright);
+  --gbdi-dataviz-3: var(--gbdi-purple-bright);
+  --gbdi-dataviz-4: var(--gbdi-orange-bright);
+  --gbdi-dataviz-green-1: var(--gbdi-green-dark);
+  --gbdi-dataviz-green-2: var(--gbdi-green-bright);
+  --gbdi-dataviz-green-3: var(--gbdi-green-light);
+  --gbdi-dataviz-green-4: var(--gbdi-green-pastel);
+  --gbdi-dataviz-blue-1: var(--gbdi-blue-dark);
+  --gbdi-dataviz-blue-2: var(--gbdi-blue-bright);
+  --gbdi-dataviz-blue-3: var(--gbdi-blue-light);
+  --gbdi-dataviz-blue-4: var(--gbdi-blue-pastel);
+  --gbdi-dataviz-purple-1: var(--gbdi-purple-dark);
+  --gbdi-dataviz-purple-2: var(--gbdi-purple-bright);
+  --gbdi-dataviz-purple-3: var(--gbdi-purple-light);
+  --gbdi-dataviz-purple-4: var(--gbdi-purple-pastel);
+  --gbdi-dataviz-orange-1: var(--gbdi-orange-dark);
+  --gbdi-dataviz-orange-2: var(--gbdi-orange-bright);
+  --gbdi-dataviz-orange-3: var(--gbdi-orange-light);
+  --gbdi-dataviz-orange-4: var(--gbdi-orange-pastel);
+  --gbdi-dataviz-highlight: var(--gbdi-orange-bright); /* the dot on range charts */
+  --gbdi-dataviz-gridline: var(--gbdi-green-grey-border);
+  --gbdi-dataviz-axis-text: var(--gbdi-grey-dark);
+
+  /* ── Illustration [brand p.24]: 1px stroke, one accent, no white fill on grey ── */
+  --gbdi-illustration-stroke: var(--gbdi-grey-dark);
+  --gbdi-illustration-stroke-width: 1px;
+  --gbdi-illustration-accent: var(--gbdi-green-grey-accent);
+
+  /* ── Typography [brand p.11–13] ── */
+  --gbdi-font-display: 'Sk-Modernist', 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gbdi-font-sans: 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --gbdi-text-size-display-xl: 4.25rem; /* 68, SK Modernist */
+  --gbdi-text-size-display-lg: 3.75rem; /* 60, SK Modernist */
+  --gbdi-text-size-display-md: 2rem;    /* 32, SK Modernist */
+  --gbdi-text-size-heading-lg: 1.5rem;  /* 24, Satoshi */
+  --gbdi-text-size-heading-md: 1.125rem;/* 18, Satoshi bold */
+  --gbdi-text-size-lg: 1.125rem;        /* 18 body */
+  --gbdi-text-size-base: 1rem;          /* 16 body */
+  --gbdi-text-size-sm: 0.875rem;        /* 14 UI [gbdi.io] */
+  --gbdi-text-size-xs: 0.75rem;         /* 12 UI [gbdi.io] */
+  --gbdi-text-size-display-xl-tablet: 3.125rem; /* 50 [gbdi.io] */
+  --gbdi-text-size-display-lg-tablet: 2.75rem;  /* 44 [gbdi.io] */
+  --gbdi-text-size-display-mobile: 2rem;        /* 32 [gbdi.io] */
+
+  --gbdi-text-line-height-display: 1.25;
+  --gbdi-text-line-height-tight: 1.1;
+  --gbdi-text-line-height-base: 1.2;
+  --gbdi-text-line-height-paragraph: 1.3;
+  --gbdi-text-line-height-hero: 1.45;
+  --gbdi-text-line-height-relaxed: 1.6;
+
+  --gbdi-text-weight-light: 300;
+  --gbdi-text-weight-regular: 400;
+  --gbdi-text-weight-medium: 500;
+  --gbdi-text-weight-bold: 700;
+
+  --gbdi-text-letter-spacing-body: -0.02em;
+  --gbdi-text-letter-spacing-label: -0.04em;
+
+  /* ── Spacing [structure: 4px steps, not from the guidelines] ── */
+  --gbdi-spacing-xxs: 0.0625rem;
+  --gbdi-spacing-xs: 0.25rem;
+  --gbdi-spacing-sm: 0.5rem;
+  --gbdi-spacing-md: 0.75rem;
+  --gbdi-spacing-lg: 1rem;
+  --gbdi-spacing-xl: 1.5rem;
+  --gbdi-spacing-xxl: 2rem;
+  --gbdi-spacing-page: 3rem;
+
+  /* ── Shape [measured in the PDF] ── */
+  --gbdi-radius-xs: 0.125rem;   /* 2  chips */
+  --gbdi-radius: 0.25rem;       /* 4  buttons, fields, hero cards */
+  --gbdi-radius-card: 0.5rem;   /* 8  standard cards */
+  --gbdi-radius-panel: 0.625rem;/* 10 wide panels */
+  --gbdi-radius-pill: 2.5rem;   /* 40 [gbdi.io] */
+  --gbdi-border-width: 1px;
+
+  --gbdi-size-control: 3rem;      /* 48 buttons + fields */
+  --gbdi-size-control-sm: 2.25rem;/* 36 dense [structure] */
+  --gbdi-size-chip: 1.5rem;       /* 24 */
+
+  --gbdi-card-padding: 2.75rem;      /* 44 [measured p.26] */
+  --gbdi-hero-card-padding: 2rem;    /* 32 [measured p.26] */
+
+  /* ── Layout / elevation / motion [structure] ── */
+  --gbdi-layout-page-width: 1320px;
+  --gbdi-shadow-floating: 0 2px 8px 0 rgb(62 62 62 / 16%); /* menus + tooltips only */
+  --gbdi-transition-default: 0.2s ease;
+}
