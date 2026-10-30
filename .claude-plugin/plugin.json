@@ -8,5 +8,6 @@
   },
   "homepage": "https://github.com/EPFL-ENAC/gbdi-design-skill",
   "repository": "https://github.com/EPFL-ENAC/gbdi-design-skill",
+  "license": "MIT",
   "skills": "./skills/"
 }

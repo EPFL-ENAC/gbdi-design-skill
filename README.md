@@ -115,6 +115,12 @@ life), then the brand foundations: [`skills/gbdi-design/design.md`](skills/gbdi-
 | `.github/workflows/release.yml` | Builds the `.zip` and `.skill` on each version tag. |
 | `AGENTS.md` | How to maintain this repo. |
 
+## Licence
+
+MIT, see [`LICENSE`](LICENSE): the code, tokens, CSS and documentation. It does not
+cover GBDI's brand: the logos in `assets/` belong to GBDI, and SK Modernist and
+Satoshi keep their own licences (they load from their CDNs, never from this repo).
+
 ## Releasing
 
 Bump `version` in `.claude-plugin/plugin.json`, merge, then tag:
