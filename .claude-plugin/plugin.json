@@ -1,0 +1,12 @@
+{
+  "name": "gbdi",
+  "version": "0.1.0",
+  "description": "GBDI (Global Building Data Initiative) design system for AI agents: brand rules, design principles, tokens, CSS, the Quasar kit and logos.",
+  "author": {
+    "name": "EPFL ENAC IT4R",
+    "url": "https://github.com/EPFL-ENAC"
+  },
+  "homepage": "https://github.com/EPFL-ENAC/gbdi-design-skill",
+  "repository": "https://github.com/EPFL-ENAC/gbdi-design-skill",
+  "skills": "./skills/"
+}

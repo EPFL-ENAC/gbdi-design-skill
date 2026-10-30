@@ -2,10 +2,6 @@
 
 # Claude Code notes
 
-Rules live in `AGENTS.md` (imported above) so every tool shares one source.
-Don't duplicate them here.
-
-- This repo is an agent skill: `SKILL.md` is the entry point, invocable as
-  `/gbdi-design`.
-- No build, no `package.json`. To preview, open `examples/home.html` in a browser
-  (or serve the repo with `python3 -m http.server`). Fonts load from CDNs.
+Rules for maintaining this repo live in `AGENTS.md` (imported above). The skill
+itself is `skills/gbdi-design/`; this repo is also a Claude Code plugin marketplace
+(`.claude-plugin/`). No build: `make skill` only zips the skill folder.

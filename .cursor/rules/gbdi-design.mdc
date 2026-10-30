@@ -6,8 +6,8 @@ alwaysApply: false
 
 # GBDI design system (Cursor rule)
 
-The canonical rules are in `AGENTS.md` at the root of the gbdi-design-skill repo:
-read it, then `README.md` from "Design principles" down, then `examples/home.html`.
+The canonical rules are in `skills/gbdi-design/rules.md` of the gbdi-design-skill
+repo: read it, then `design.md` next to it, then `examples/home.html`.
 
 - Tokens only: `var(--gbdi-*)` or `tokens.$…`. No raw hex outside the token files.
 - SK Modernist for headings ≥ 32px, Satoshi for the rest. Never commit font files.

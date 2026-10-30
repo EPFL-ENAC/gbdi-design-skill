@@ -24,3 +24,6 @@ gbdi.io CDN, so you need a network connection.
 The same page runs in the Quasar app at `/demo` (`lmc-gbdi`, `frontend/src/pages/DemoPage.vue`).
 `/demo/project` (`ProjectPage.vue`) shows a real OpenBDF project from `/api/overview`: headline hero
 cards, then six chart-and-table views (stage, element, stage by element, hotspots, data types, mass).
+`/demo/project_1` to `_3` lay the same data out three ways, all in the GBDI design:
+a brand-book spread, the building drawn as a section of its carbon, and an analyst's
+drawing sheet with an element × stage heat table and a mass-against-carbon plot.
